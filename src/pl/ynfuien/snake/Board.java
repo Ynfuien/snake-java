@@ -26,7 +26,7 @@ public class Board extends JPanel implements ActionListener {
         SIZE = GRID_SIZE * Main.SCALE + (GRID_SIZE - 1);
 
         this.setPreferredSize(new Dimension(SIZE, SIZE));
-        this.setBackground(Color.black);
+        this.setBackground(GameColors.background.color);
         this.setFocusable(true);
         this.addKeyListener(new CustomKeyAdapter());
 
@@ -44,7 +44,7 @@ public class Board extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
 
         // Clear
-        g2d.setColor(Color.black);
+        g2d.setColor(GameColors.background.color);
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
         if (gameOver) {
@@ -129,13 +129,14 @@ public class Board extends JPanel implements ActionListener {
         }
     }
     enum GameColors {
-        snakeHead(Color.orange),
-        snakeBody(Color.yellow),
-        berry(Color.red),
-        border(Color.darkGray),
-        gameOver(Color.red),
-        score(Color.yellow),
-        scoreNumber(Color.orange);
+        background(new Color(36, 36, 36)),
+        snakeHead(new Color(231,108,1)),
+        snakeBody(new Color(248,152,29)),
+        berry(new Color(255, 85, 85)),
+        border(new Color(85, 85, 85)),
+        gameOver(new Color(255, 85, 85)),
+        score(new Color(255, 255, 85)),
+        scoreNumber(new Color(255, 170, 0));
 
         public final Color color;
         GameColors(Color color) {
